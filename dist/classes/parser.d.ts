@@ -1,5 +1,5 @@
-import { FieldParser } from '../mappers/fieldParser';
-import { ParsedLicense } from '../parsedLicense';
+import { FieldParser } from "../mappers/fieldParser";
+import { ParsedLicense } from "../parsedLicense";
 export declare class LicenseParser {
     private regex;
     data: string;

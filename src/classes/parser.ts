@@ -5,13 +5,16 @@ import { VersionTwoFieldParser } from "../mappers/v2/versionTwoFieldParser";
 import { VersionThreeFieldParser } from "../mappers/v3/versionThreeFieldParser";
 import { VersionFourFieldParser } from "../mappers/v4/versionFourFieldParser";
 import { VersionFiveFieldParser } from "../mappers/v5/versionFiveFieldParser";
-import { VersionEightFieldParser } from "../mappers/v8/versionEightFieldParser";
-import { ParsedLicense } from "../parsedLicense";
-import { License } from "../models/license";
-import { VersionTenFieldParser } from "../mappers/v10/versionTenFieldParser";
 import { VersionSixFieldParser } from "../mappers/v6/versionSixFieldParser";
 import { VersionSevenFieldParser } from "../mappers/v7/versionSevenFieldParser";
+import { VersionEightFieldParser } from "../mappers/v8/versionEightFieldParser";
 import { VersionNineFieldParser } from "../mappers/v9/versionNineFieldParser";
+import { VersionTenFieldParser } from "../mappers/v10/versionTenFieldParser";
+import { ParsedLicense } from "../parsedLicense";
+import { License } from "../models/license";
+
+
+
 
 export class LicenseParser {
   private regex: Regex = new Regex();

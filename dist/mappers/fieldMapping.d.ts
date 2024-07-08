@@ -11,9 +11,13 @@ export interface FieldMapping {
     fieldFor(key: string): string;
 }
 export declare class FieldMapper implements FieldMapping {
-    fields: {
+    private _fields;
+    get fields(): {
         [key: string]: string;
     };
+    set fields(newFields: {
+        [key: string]: string;
+    });
     /**
      * Determine the AAMVA field designator for a particular human-readable key.
      *

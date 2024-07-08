@@ -8,12 +8,12 @@ const versionTwoFieldParser_1 = require("../mappers/v2/versionTwoFieldParser");
 const versionThreeFieldParser_1 = require("../mappers/v3/versionThreeFieldParser");
 const versionFourFieldParser_1 = require("../mappers/v4/versionFourFieldParser");
 const versionFiveFieldParser_1 = require("../mappers/v5/versionFiveFieldParser");
-const versionEightFieldParser_1 = require("../mappers/v8/versionEightFieldParser");
-const license_1 = require("../models/license");
-const versionTenFieldParser_1 = require("../mappers/v10/versionTenFieldParser");
 const versionSixFieldParser_1 = require("../mappers/v6/versionSixFieldParser");
 const versionSevenFieldParser_1 = require("../mappers/v7/versionSevenFieldParser");
+const versionEightFieldParser_1 = require("../mappers/v8/versionEightFieldParser");
 const versionNineFieldParser_1 = require("../mappers/v9/versionNineFieldParser");
+const versionTenFieldParser_1 = require("../mappers/v10/versionTenFieldParser");
+const license_1 = require("../models/license");
 class LicenseParser {
     constructor(data) {
         this.regex = new regex_1.Regex();
@@ -83,14 +83,15 @@ class LicenseParser {
                 return new versionEightFieldParser_1.VersionEightFieldParser(this.data);
             case "09":
                 return new versionNineFieldParser_1.VersionNineFieldParser(this.data);
-            case "08":
+            case "10":
                 return new versionTenFieldParser_1.VersionTenFieldParser(this.data);
             default:
                 return defaultParser;
         }
     }
     isExpired() {
-        return this.fieldParser.parseExpirationDate() !== null && new Date() > this.fieldParser.parseExpirationDate();
+        return (this.fieldParser.parseExpirationDate() !== null &&
+            new Date() > this.fieldParser.parseExpirationDate());
     }
 }
 exports.LicenseParser = LicenseParser;

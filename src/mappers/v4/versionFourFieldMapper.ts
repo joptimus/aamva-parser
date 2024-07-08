@@ -1,10 +1,11 @@
-import { FieldMapping } from '../fieldMapping';
+import { FieldMapper, FieldMapping } from '../fieldMapping';
 
 export class VersionFourFieldMapper implements FieldMapping {
   fields: { [key: string]: string } = {};
 
   constructor() {
-    // Initialize fields if needed
+    const fieldMapper = new FieldMapper();
+    this.fields = { ...fieldMapper.fields }; // Copy fields from FieldMapper
   }
 
   fieldFor(key: string): string {

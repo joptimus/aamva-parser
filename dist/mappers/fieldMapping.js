@@ -5,7 +5,7 @@ exports.FieldMapper = void 0;
 class FieldMapper {
     constructor() {
         // A list of AAMVA field designator mappings (e.g. "firstName" => "DAC")
-        this.fields = {
+        this._fields = {
             "firstName": "DAC",
             "lastName": "DCS",
             "middleName": "DAD",
@@ -35,6 +35,14 @@ class FieldMapper {
             "suffixAlias": "DBS",
             "suffix": "DCU"
         };
+    }
+    // Getter for fields
+    get fields() {
+        return this._fields;
+    }
+    // Setter for fields
+    set fields(newFields) {
+        this._fields = newFields;
     }
     /**
      * Determine the AAMVA field designator for a particular human-readable key.

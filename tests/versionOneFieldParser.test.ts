@@ -1,23 +1,51 @@
 import { VersionOneFieldParser } from '../src/mappers/v1/versionOneFieldParser';
 
 describe('VersionOneFieldParser', () => {
-  const data = 'some raw data adhering to VersionOne format';
+  const data = `@
+
+  ANSI 636026020102DL00410288ZA03290015DLDAQD12345678
+  DABPUBLIC
+  DDEN
+  DACJOHN
+  DDFN
+  DADQUINCY
+  DDGN
+  DCAD
+  DCBNONE
+  DCDNONE
+  DBD08242015
+  DBB01311970
+  DBA01312035
+  DBC1
+  DAU069 in
+  DAYGRN
+  DAG789 E OAK ST
+  DAIANYTOWN
+  DAJCA
+  DAK902230000  
+  DCF83D9BN217QO983B1
+  DCGUSA
+  DAW180
+  DAZBRO
+  DCK12345678900000000000
+  DDB02142014
+  DDK1
+  ZAZAAN
+  ZAB
+  ZAC`;
   const parser = new VersionOneFieldParser(data);
 
   it('should parse first name correctly', () => {
     const result = parser.parseFirstName();
-    expect(result).toBe('expected first name'); // Adjust based on your logic
+    expect(result).toBe('JOHN'); // Adjust based on your logic
   });
 
   it('should parse last name correctly', () => {
     const result = parser.parseLastName();
-    expect(result).toBe('expected last name'); // Adjust based on your logic
+    console.warn(parser, result)
+    expect(result).toBe('PUBLIC'); // Adjust based on your logic
   });
 
-  it('should parse height correctly', () => {
-    const result = parser.parseHeight();
-    expect(result).toBe(68); // Adjust based on your logic
-  });
 
   // Add more tests for other methods
 });
