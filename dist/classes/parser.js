@@ -16,7 +16,10 @@ class LicenseParser {
         this.data = data;
         this.fieldParser = new fieldParser_1.FieldParser(data);
     }
-    parse() {
+    parse(data) {
+        if (data) {
+            this.fieldParser = new fieldParser_1.FieldParser(data);
+        }
         this.fieldParser = this.versionBasedFieldParsing(this.parseVersion());
         const licenseData = {
             firstName: this.fieldParser.parseFirstName(),

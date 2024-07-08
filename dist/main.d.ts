@@ -3,7 +3,7 @@ declare class AAMVA {
     private data;
     private licenseParser;
     constructor(data: string);
-    parse(): ParsedLicense;
+    parse(data?: any): ParsedLicense;
     getVersion(): string | null;
 }
 export default AAMVA;
