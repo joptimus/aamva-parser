@@ -1,3 +1,25 @@
+## Usage
+
+```js
+
+
+// Ask the parser to parse it
+const parsedLicense = ParseScan(data: pdf417Data)
+
+print(parsedLicense.firstName)
+// => Optional("John")
+print(parsedLicense.middleName)
+// => Optional("Quincy")
+print(parsedLicense.lastName)
+// => Optional("Public")
+
+// Checks is the License is expired. Returns a boolean
+const isValidLicense = IsExpired(data: pdf417Data);
+
+// Checks is the AAMVA Version. Returns a string
+const isValidLicense = GetVersion(data: pdf417Data);
+```
+
 ### Supported Fields
 | Name                   | Description                                                                                                                                          | Type   | `ParsedLicense` Attribute |
 |:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:-------|:--------------------------|
