@@ -5,7 +5,7 @@ export interface FieldMapping {
 
   /**
    * Determine the AAMVA field designator for a particular human-readable key.
-   * 
+   *
    * @param key - The human-readable key
    * @returns The AAMVA field designator
    */
@@ -16,38 +16,38 @@ export interface FieldMapping {
 export class FieldMapper implements FieldMapping {
   // A list of AAMVA field designator mappings (e.g. "firstName" => "DAC")
   private _fields: { [key: string]: string } = {
-      "firstName": "DAC",
-      "lastName": "DCS",
-      "middleName": "DAD",
-      "expirationDate": "DBA",
-      "issueDate": "DBD",
-      "dateOfBirth": "DBB",
-      "gender": "DBC",
-      "eyeColor": "DAY",
-      "height": "DAU",
-      "streetAddress": "DAG",
-      "city": "DAI",
-      "state": "DAJ",
-      "postalCode": "DAK",
-      "customerId": "DAQ",
-      "documentId": "DCF",
-      "country": "DCG",
-      "middleNameTruncation": "DDG",
-      "firstNameTruncation": "DDF",
-      "lastNameTruncation": "DDE",
-      "streetAddressSupplement": "DAH",
-      "hairColor": "DAZ",
-      "placeOfBirth": "DCI",
-      "auditInformation": "DCJ",
-      "inventoryControlNumber": "DCK",
-      "lastNameAlias": "DBN",
-      "firstNameAlias": "DBG",
-      "suffixAlias": "DBS",
-      "suffix": "DCU"
+    firstName: "DAC",
+    lastName: "DCS",
+    middleName: "DAD",
+    expirationDate: "DBA",
+    issueDate: "DBD",
+    dateOfBirth: "DBB",
+    gender: "DBC",
+    eyeColor: "DAY",
+    height: "DAU",
+    streetAddress: "DAG",
+    city: "DAI",
+    state: "DAJ",
+    postalCode: "DAK",
+    customerId: "DAQ",
+    documentId: "DCF",
+    country: "DCG",
+    middleNameTruncation: "DDG",
+    firstNameTruncation: "DDF",
+    lastNameTruncation: "DDE",
+    streetAddressSupplement: "DAH",
+    hairColor: "DAZ",
+    placeOfBirth: "DCI",
+    auditInformation: "DCJ",
+    inventoryControlNumber: "DCK",
+    lastNameAlias: "DBN",
+    firstNameAlias: "DBG",
+    suffixAlias: "DBS",
+    suffix: "DCU",
   };
 
-   // Getter for fields
-   public get fields(): { [key: string]: string } {
+  // Getter for fields
+  public get fields(): { [key: string]: string } {
     return this._fields;
   }
 
@@ -58,11 +58,11 @@ export class FieldMapper implements FieldMapping {
 
   /**
    * Determine the AAMVA field designator for a particular human-readable key.
-   * 
+   *
    * @param key - The human-readable key
    * @returns The AAMVA field designator
    */
   public fieldFor(key: string): string {
-      return this.fields[key] || "";
+    return this.fields[key] || "";
   }
 }

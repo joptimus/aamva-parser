@@ -1,13 +1,18 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.parseScan = parseScan;
-exports.getVersion = getVersion;
+exports.ParseScan = ParseScan;
+exports.GetVersion = GetVersion;
+exports.IsExpired = IsExpired;
 const parser_1 = require("./classes/parser");
-function parseScan(barcode) {
+function ParseScan(barcode) {
     const parser = new parser_1.LicenseParser(barcode);
     return parser.parse();
 }
-function getVersion(barcode) {
+function GetVersion(barcode) {
     const parser = new parser_1.LicenseParser(barcode);
     return parser.parseVersion();
+}
+function IsExpired(barcode) {
+    const parser = new parser_1.LicenseParser(barcode);
+    return parser.isExpired();
 }

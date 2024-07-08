@@ -13,9 +13,6 @@ import { VersionTenFieldParser } from "../mappers/v10/versionTenFieldParser";
 import { ParsedLicense } from "../parsedLicense";
 import { License } from "../models/license";
 
-
-
-
 export class LicenseParser {
   private regex: Regex = new Regex();
   public data: string;
@@ -46,23 +43,14 @@ export class LicenseParser {
       customerId: this.fieldParser.parseString("customerId"),
       documentId: this.fieldParser.parseString("documentId"),
       country: this.fieldParser.parseCountry(),
-      middleNameTruncation: this.fieldParser.parseTruncationStatus(
-        "middleNameTruncation"
-      ),
-      firstNameTruncation: this.fieldParser.parseTruncationStatus(
-        "firstNameTruncation"
-      ),
-      lastNameTruncation:
-        this.fieldParser.parseTruncationStatus("lastNameTruncation"),
-      streetAddressSupplement: this.fieldParser.parseString(
-        "streetAddressSupplement"
-      ),
+      middleNameTruncation: this.fieldParser.parseTruncationStatus("middleNameTruncation"),
+      firstNameTruncation: this.fieldParser.parseTruncationStatus("firstNameTruncation"),
+      lastNameTruncation: this.fieldParser.parseTruncationStatus("lastNameTruncation"),
+      streetAddressSupplement: this.fieldParser.parseString("streetAddressSupplement"),
       hairColor: this.fieldParser.parseHairColor(),
       placeOfBirth: this.fieldParser.parseString("placeOfBirth"),
       auditInformation: this.fieldParser.parseString("auditInformation"),
-      inventoryControlNumber: this.fieldParser.parseString(
-        "inventoryControlNumber"
-      ),
+      inventoryControlNumber: this.fieldParser.parseString("inventoryControlNumber"),
       lastNameAlias: this.fieldParser.parseString("lastNameAlias"),
       firstNameAlias: this.fieldParser.parseString("firstNameAlias"),
       suffixAlias: this.fieldParser.parseString("suffixAlias"),
@@ -110,7 +98,7 @@ export class LicenseParser {
     }
   }
 
-  private isExpired(): boolean {
+  public isExpired(): boolean {
     return (
       this.fieldParser.parseExpirationDate() !== null &&
       new Date() > this.fieldParser.parseExpirationDate()

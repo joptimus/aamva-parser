@@ -26,9 +26,17 @@ class FieldParser {
     }
     parseDate(field) {
         const dateString = this.parseString(field);
-        if (!dateString)
+        if (!dateString || dateString.length !== 8)
+            return null; // Ensure the string is 8 characters long
+        const month = parseInt(dateString.slice(0, 2), 10);
+        const day = parseInt(dateString.slice(2, 4), 10);
+        const year = parseInt(dateString.slice(4, 8), 10);
+        // Validate parsed components
+        if (isNaN(month) || isNaN(day) || isNaN(year))
             return null;
-        const parsedDate = new Date(dateString);
+        // JavaScript Date constructor: new Date(year, monthIndex, day)
+        // monthIndex is zero-based, so we subtract 1 from the month
+        const parsedDate = new Date(year, month - 1, day);
         return isNaN(parsedDate.getTime()) ? null : parsedDate;
     }
     getDateFormat() {
@@ -47,7 +55,8 @@ class FieldParser {
         return this.parseDate("expirationDate");
     }
     parseIsExpired() {
-        return this.parseExpirationDate() !== null && new Date() > this.parseExpirationDate();
+        return (this.parseExpirationDate() !== null &&
+            new Date() > this.parseExpirationDate());
     }
     parseIssueDate() {
         return this.parseDate("issueDate");

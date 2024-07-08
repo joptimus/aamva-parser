@@ -8,5 +8,5 @@ export declare class LicenseParser {
     parse(): ParsedLicense;
     parseVersion(): string | null;
     private versionBasedFieldParsing;
-    private isExpired;
+    isExpired(): boolean;
 }

@@ -41,20 +41,29 @@ export class Parser {
       customerId: this.fieldParser.parseString("customerId"),
       documentId: this.fieldParser.parseString("documentId"),
       country: this.fieldParser.parseCountry(),
-      middleNameTruncation: this.fieldParser.parseTruncationStatus("middleNameTruncation"),
-      firstNameTruncation: this.fieldParser.parseTruncationStatus("firstNameTruncation"),
-      lastNameTruncation: this.fieldParser.parseTruncationStatus("lastNameTruncation"),
-      streetAddressSupplement: this.fieldParser.parseString("streetAddressSupplement"),
+      middleNameTruncation: this.fieldParser.parseTruncationStatus(
+        "middleNameTruncation"
+      ),
+      firstNameTruncation: this.fieldParser.parseTruncationStatus(
+        "firstNameTruncation"
+      ),
+      lastNameTruncation:
+        this.fieldParser.parseTruncationStatus("lastNameTruncation"),
+      streetAddressSupplement: this.fieldParser.parseString(
+        "streetAddressSupplement"
+      ),
       hairColor: this.fieldParser.parseHairColor(),
       placeOfBirth: this.fieldParser.parseString("placeOfBirth"),
       auditInformation: this.fieldParser.parseString("auditInformation"),
-      inventoryControlNumber: this.fieldParser.parseString("inventoryControlNumber"),
+      inventoryControlNumber: this.fieldParser.parseString(
+        "inventoryControlNumber"
+      ),
       lastNameAlias: this.fieldParser.parseString("lastNameAlias"),
       firstNameAlias: this.fieldParser.parseString("firstNameAlias"),
       suffixAlias: this.fieldParser.parseString("suffixAlias"),
       suffix: this.fieldParser.parseNameSuffix(),
       version: this.parseVersion(),
-      pdf417: this.data
+      pdf417: this.data,
     };
   }
 
@@ -74,16 +83,16 @@ export class Parser {
         return new VersionFourFieldParser(this.data);
       case "05":
         return new VersionFiveFieldParser(this.data);
-        case "06":
-          return new VersionSevenFieldParser(this.data);
-          case "07":
-            return new VersionSevenFieldParser(this.data);
-            case "08":
+      case "06":
+        return new VersionSevenFieldParser(this.data);
+      case "07":
+        return new VersionSevenFieldParser(this.data);
+      case "08":
         return new VersionEightFieldParser(this.data);
-        case "09":
-          return new VersionNineFieldParser(this.data);
-          case "10":
-            return new VersionTenFieldParser(this.data);
+      case "09":
+        return new VersionNineFieldParser(this.data);
+      case "10":
+        return new VersionTenFieldParser(this.data);
       default:
         return defaultParser;
     }

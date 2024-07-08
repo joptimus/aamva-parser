@@ -1,11 +1,11 @@
-import { Regex } from '../utils/regex';
-import { FieldMapping, FieldMapper } from './fieldMapping';
-import { IssuingCountry } from '../enums/issuingCountry';
-import { Gender } from '../enums/gender';
-import { EyeColor } from '../enums/eyeColor';
-import { HairColor } from '../enums/hairColor';
-import { Truncation } from '../enums/truncation';
-import { NameSuffix } from '../enums/nameSuffix';
+import { Regex } from "../utils/regex";
+import { FieldMapping, FieldMapper } from "./fieldMapping";
+import { IssuingCountry } from "../enums/issuingCountry";
+import { Gender } from "../enums/gender";
+import { EyeColor } from "../enums/eyeColor";
+import { HairColor } from "../enums/hairColor";
+import { Truncation } from "../enums/truncation";
+import { NameSuffix } from "../enums/nameSuffix";
 
 export class FieldParser {
   static readonly INCHES_PER_CENTIMETER: number = 0.393701;
@@ -28,12 +28,21 @@ export class FieldParser {
     const result = this.regex.firstMatch(`${identifier}(\\w+)\\b`, this.data);
     return result ? parseFloat(result) : null;
   }
-
   parseDate(field: string): Date | null {
     const dateString = this.parseString(field);
-    if (!dateString) return null;
+    if (!dateString || dateString.length !== 8) return null; // Ensure the string is 8 characters long
 
-    const parsedDate = new Date(dateString);
+    const month = parseInt(dateString.slice(0, 2), 10);
+    const day = parseInt(dateString.slice(2, 4), 10);
+    const year = parseInt(dateString.slice(4, 8), 10);
+
+    // Validate parsed components
+    if (isNaN(month) || isNaN(day) || isNaN(year)) return null;
+
+    // JavaScript Date constructor: new Date(year, monthIndex, day)
+    // monthIndex is zero-based, so we subtract 1 from the month
+    const parsedDate = new Date(year, month - 1, day);
+
     return isNaN(parsedDate.getTime()) ? null : parsedDate;
   }
 
@@ -58,7 +67,10 @@ export class FieldParser {
   }
 
   parseIsExpired(): boolean {
-    return this.parseExpirationDate() !== null && new Date() > this.parseExpirationDate();
+    return (
+      this.parseExpirationDate() !== null &&
+      new Date() > this.parseExpirationDate()
+    );
   }
 
   parseIssueDate(): Date | null {

@@ -1,11 +1,11 @@
-import { Regex } from '../utils/regex';
-import { FieldMapping } from './fieldMapping';
-import { IssuingCountry } from '../enums/issuingCountry';
-import { Gender } from '../enums/gender';
-import { EyeColor } from '../enums/eyeColor';
-import { HairColor } from '../enums/hairColor';
-import { Truncation } from '../enums/truncation';
-import { NameSuffix } from '../enums/nameSuffix';
+import { Regex } from "../utils/regex";
+import { FieldMapping } from "./fieldMapping";
+import { IssuingCountry } from "../enums/issuingCountry";
+import { Gender } from "../enums/gender";
+import { EyeColor } from "../enums/eyeColor";
+import { HairColor } from "../enums/hairColor";
+import { Truncation } from "../enums/truncation";
+import { NameSuffix } from "../enums/nameSuffix";
 export declare class FieldParser {
     static readonly INCHES_PER_CENTIMETER: number;
     regex: Regex;

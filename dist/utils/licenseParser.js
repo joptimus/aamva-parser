@@ -50,7 +50,7 @@ class Parser {
             suffixAlias: this.fieldParser.parseString("suffixAlias"),
             suffix: this.fieldParser.parseNameSuffix(),
             version: this.parseVersion(),
-            pdf417: this.data
+            pdf417: this.data,
         };
     }
     versionBasedFieldParsing(version) {
