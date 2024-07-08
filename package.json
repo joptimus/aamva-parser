@@ -1,12 +1,12 @@
 {
   "name": "aamva-parser",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Plugin to parse AAMVA Drivers License Data from the PDF417 barcode",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,11 @@
   "license": "ISC",
   "devDependencies": {
     "@types/jest": "^29.5.12",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.0",
     "typescript": "^5.5.3"
+  },
+  "dependencies": {
+    "ts-node": "^10.9.2"
   }
 }

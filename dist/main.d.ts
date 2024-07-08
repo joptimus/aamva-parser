@@ -1,9 +1,9 @@
 import { ParsedLicense } from './models/parsedLicense';
-declare class Main {
+declare class AAMVA {
     private data;
     private licenseParser;
     constructor(data: string);
     parse(): ParsedLicense;
     getVersion(): string | null;
 }
-export default Main;
+export default AAMVA;

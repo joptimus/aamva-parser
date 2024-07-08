@@ -1,3 +1,3 @@
-import Main from './main';
+import AAMVA from './main';
 
-export { Main };
+export { AAMVA };

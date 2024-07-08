@@ -19,7 +19,10 @@ export class LicenseParser {
     this.fieldParser = new FieldParser(data);
   }
 
-  parse(): ParsedLicense {
+  parse(data?): ParsedLicense {
+    if(data) {
+      this.fieldParser = new FieldParser(data);
+    }
     this.fieldParser = this.versionBasedFieldParsing(this.parseVersion());
 
     const licenseData: Partial<ParsedLicense> = {

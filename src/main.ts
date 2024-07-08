@@ -1,7 +1,7 @@
 import { LicenseParser } from './classes/parser';
 import { ParsedLicense } from './models/parsedLicense';
 
-class Main {
+class AAMVA {
   private data: string;
   private licenseParser: LicenseParser;
 
@@ -10,8 +10,8 @@ class Main {
     this.licenseParser = new LicenseParser(data);
   }
 
-  parse(): ParsedLicense {
-    return this.licenseParser.parse();
+  parse(data?): ParsedLicense {
+    return this.licenseParser.parse(data);
   }
 
   getVersion(): string | null {
@@ -19,4 +19,4 @@ class Main {
   }
 }
 
-export default Main;
+export default AAMVA;
