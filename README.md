@@ -8,7 +8,7 @@ npm install aamva-parser
 ## Usage
 
 ```js
-import { ParseScan, IsExpired, GetVersion} from "aamva-parser"
+import { ParseScan, IsExpired, GetVersion } from "aamva-parser"
 
 // Ask the parser to parse it
 const parsedLicense = ParseScan(data: pdf417Data)
