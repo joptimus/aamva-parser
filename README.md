@@ -1,7 +1,14 @@
+## Installation
+Install through npm
+
+```bash
+npm install aamva-parser
+```
+
 ## Usage
 
 ```js
-
+import { ParseScan, IsExpired, GetVersion} from "aamva-parser"
 
 // Ask the parser to parse it
 const parsedLicense = ParseScan(data: pdf417Data)
@@ -17,7 +24,7 @@ print(parsedLicense.lastName)
 const isValidLicense = IsExpired(data: pdf417Data);
 
 // Checks is the AAMVA Version. Returns a string
-const isValidLicense = GetVersion(data: pdf417Data);
+const aamvaVersion = GetVersion(data: pdf417Data);
 ```
 
 ### Supported Fields
