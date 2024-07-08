@@ -6,9 +6,10 @@ import { VersionThreeFieldParser } from '../mappers/v3/versionThreeFieldParser';
 import { VersionFourFieldParser } from '../mappers/v4/versionFourFieldParser';
 import { VersionFiveFieldParser } from '../mappers/v5/versionFiveFieldParser';
 import { VersionEightFieldParser } from '../mappers/v8/versionEightFieldParser';
-import { ParsedLicense } from '../types/aamva-parser';
+import { ParsedLicense } from '../models/parsedLicense';
+import { License } from '../models/license';
 
-export class Parser {
+export class LicenseParser {
   private regex: Regex = new Regex();
   public data: string;
   public fieldParser: FieldParser;
@@ -21,7 +22,7 @@ export class Parser {
   parse(): ParsedLicense {
     this.fieldParser = this.versionBasedFieldParsing(this.parseVersion());
 
-    return {
+    const licenseData: Partial<ParsedLicense> = {
       firstName: this.fieldParser.parseFirstName(),
       lastName: this.fieldParser.parseLastName(),
       middleName: this.fieldParser.parseMiddleName(),
@@ -53,6 +54,12 @@ export class Parser {
       version: this.parseVersion(),
       pdf417: this.data
     };
+
+    return new License(licenseData);
+  }
+
+  parseVersion(): string | null {
+    return this.regex.firstMatch("\\d{6}(\\d{2})\\w+", this.data);
   }
 
   private versionBasedFieldParsing(version: string | null): FieldParser {
@@ -76,9 +83,5 @@ export class Parser {
       default:
         return defaultParser;
     }
-  }
-
-  private parseVersion(): string | null {
-    return this.regex.firstMatch("\\d{6}(\\d{2})\\w+", this.data);
   }
 }
