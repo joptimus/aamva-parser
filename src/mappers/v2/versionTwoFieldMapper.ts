@@ -1,7 +1,7 @@
 import { FieldMapping } from '../fieldMapping';
 
 export class VersionTwoFieldMapper implements FieldMapping {
-  private fields: { [key: string]: string } = {};
+  fields: { [key: string]: string } = {};
 
   constructor() {
     this.fields["firstName"] = "DCT";

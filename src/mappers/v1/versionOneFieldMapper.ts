@@ -1,7 +1,8 @@
 import { FieldMapping } from '../fieldMapping';
 
 export class VersionOneFieldMapper implements FieldMapping {
-  private fields: { [key: string]: string } = {};
+  fields: { [key: string]: string } = {};
+
 
   constructor() {
     this.fields["customerId"] = "DBJ";

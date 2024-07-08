@@ -1,4 +1,4 @@
-import { ParsedLicense } from './parsedLicense';
+import { ParsedLicense } from '../parsedLicense';
 import { Gender, EyeColor, IssuingCountry, Truncation, HairColor, NameSuffix } from '../enums';
 
 export class License implements ParsedLicense {
@@ -32,6 +32,7 @@ export class License implements ParsedLicense {
   suffix: NameSuffix = NameSuffix.Unknown;
   version: string | null = null;
   pdf417: string | null = null;
+  expired: boolean;
 
   constructor(data?: Partial<ParsedLicense>) {
     Object.assign(this, data);

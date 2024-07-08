@@ -1,9 +1,9 @@
-import { ParsedLicense } from './models/parsedLicense';
+import { ParsedLicense } from './parsedLicense';
 declare class AAMVA {
     private data;
     private licenseParser;
     constructor(data: string);
-    parse(data?: any): ParsedLicense;
+    parse(): ParsedLicense;
     getVersion(): string | null;
 }
 export default AAMVA;

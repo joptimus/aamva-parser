@@ -1,5 +1,5 @@
 export declare enum IssuingCountry {
-    UnitedStates = "UnitedStates",
+    UnitedStates = "United States",
     Canada = "Canada",
     Unknown = "Unknown"
 }

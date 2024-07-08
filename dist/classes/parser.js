@@ -10,16 +10,17 @@ const versionFourFieldParser_1 = require("../mappers/v4/versionFourFieldParser")
 const versionFiveFieldParser_1 = require("../mappers/v5/versionFiveFieldParser");
 const versionEightFieldParser_1 = require("../mappers/v8/versionEightFieldParser");
 const license_1 = require("../models/license");
+const versionTenFieldParser_1 = require("../mappers/v10/versionTenFieldParser");
+const versionSixFieldParser_1 = require("../mappers/v6/versionSixFieldParser");
+const versionSevenFieldParser_1 = require("../mappers/v7/versionSevenFieldParser");
+const versionNineFieldParser_1 = require("../mappers/v9/versionNineFieldParser");
 class LicenseParser {
     constructor(data) {
         this.regex = new regex_1.Regex();
         this.data = data;
         this.fieldParser = new fieldParser_1.FieldParser(data);
     }
-    parse(data) {
-        if (data) {
-            this.fieldParser = new fieldParser_1.FieldParser(data);
-        }
+    parse() {
         this.fieldParser = this.versionBasedFieldParsing(this.parseVersion());
         const licenseData = {
             firstName: this.fieldParser.parseFirstName(),
@@ -51,7 +52,8 @@ class LicenseParser {
             suffixAlias: this.fieldParser.parseString("suffixAlias"),
             suffix: this.fieldParser.parseNameSuffix(),
             version: this.parseVersion(),
-            pdf417: this.data
+            pdf417: this.data,
+            expired: this.fieldParser.parseIsExpired(),
         };
         return new license_1.License(licenseData);
     }
@@ -73,11 +75,22 @@ class LicenseParser {
                 return new versionFourFieldParser_1.VersionFourFieldParser(this.data);
             case "05":
                 return new versionFiveFieldParser_1.VersionFiveFieldParser(this.data);
+            case "06":
+                return new versionSixFieldParser_1.VersionSixFieldParser(this.data);
+            case "07":
+                return new versionSevenFieldParser_1.VersionSevenFieldParser(this.data);
             case "08":
                 return new versionEightFieldParser_1.VersionEightFieldParser(this.data);
+            case "09":
+                return new versionNineFieldParser_1.VersionNineFieldParser(this.data);
+            case "08":
+                return new versionTenFieldParser_1.VersionTenFieldParser(this.data);
             default:
                 return defaultParser;
         }
+    }
+    isExpired() {
+        return this.fieldParser.parseExpirationDate() !== null && new Date() > this.fieldParser.parseExpirationDate();
     }
 }
 exports.LicenseParser = LicenseParser;

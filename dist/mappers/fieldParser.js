@@ -46,6 +46,9 @@ class FieldParser {
     parseExpirationDate() {
         return this.parseDate("expirationDate");
     }
+    parseIsExpired() {
+        return this.parseExpirationDate() !== null && new Date() > this.parseExpirationDate();
+    }
     parseIssueDate() {
         return this.parseDate("issueDate");
     }

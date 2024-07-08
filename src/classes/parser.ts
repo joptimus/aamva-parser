@@ -1,13 +1,17 @@
-import { Regex } from '../utils/regex';
-import { FieldParser } from '../mappers/fieldParser';
-import { VersionOneFieldParser } from '../mappers/v1/versionOneFieldParser';
-import { VersionTwoFieldParser } from '../mappers/v2/versionTwoFieldParser';
-import { VersionThreeFieldParser } from '../mappers/v3/versionThreeFieldParser';
-import { VersionFourFieldParser } from '../mappers/v4/versionFourFieldParser';
-import { VersionFiveFieldParser } from '../mappers/v5/versionFiveFieldParser';
-import { VersionEightFieldParser } from '../mappers/v8/versionEightFieldParser';
-import { ParsedLicense } from '../models/parsedLicense';
-import { License } from '../models/license';
+import { Regex } from "../utils/regex";
+import { FieldParser } from "../mappers/fieldParser";
+import { VersionOneFieldParser } from "../mappers/v1/versionOneFieldParser";
+import { VersionTwoFieldParser } from "../mappers/v2/versionTwoFieldParser";
+import { VersionThreeFieldParser } from "../mappers/v3/versionThreeFieldParser";
+import { VersionFourFieldParser } from "../mappers/v4/versionFourFieldParser";
+import { VersionFiveFieldParser } from "../mappers/v5/versionFiveFieldParser";
+import { VersionEightFieldParser } from "../mappers/v8/versionEightFieldParser";
+import { ParsedLicense } from "../parsedLicense";
+import { License } from "../models/license";
+import { VersionTenFieldParser } from "../mappers/v10/versionTenFieldParser";
+import { VersionSixFieldParser } from "../mappers/v6/versionSixFieldParser";
+import { VersionSevenFieldParser } from "../mappers/v7/versionSevenFieldParser";
+import { VersionNineFieldParser } from "../mappers/v9/versionNineFieldParser";
 
 export class LicenseParser {
   private regex: Regex = new Regex();
@@ -19,10 +23,7 @@ export class LicenseParser {
     this.fieldParser = new FieldParser(data);
   }
 
-  parse(data?): ParsedLicense {
-    if(data) {
-      this.fieldParser = new FieldParser(data);
-    }
+  public parse(): ParsedLicense {
     this.fieldParser = this.versionBasedFieldParsing(this.parseVersion());
 
     const licenseData: Partial<ParsedLicense> = {
@@ -42,26 +43,36 @@ export class LicenseParser {
       customerId: this.fieldParser.parseString("customerId"),
       documentId: this.fieldParser.parseString("documentId"),
       country: this.fieldParser.parseCountry(),
-      middleNameTruncation: this.fieldParser.parseTruncationStatus("middleNameTruncation"),
-      firstNameTruncation: this.fieldParser.parseTruncationStatus("firstNameTruncation"),
-      lastNameTruncation: this.fieldParser.parseTruncationStatus("lastNameTruncation"),
-      streetAddressSupplement: this.fieldParser.parseString("streetAddressSupplement"),
+      middleNameTruncation: this.fieldParser.parseTruncationStatus(
+        "middleNameTruncation"
+      ),
+      firstNameTruncation: this.fieldParser.parseTruncationStatus(
+        "firstNameTruncation"
+      ),
+      lastNameTruncation:
+        this.fieldParser.parseTruncationStatus("lastNameTruncation"),
+      streetAddressSupplement: this.fieldParser.parseString(
+        "streetAddressSupplement"
+      ),
       hairColor: this.fieldParser.parseHairColor(),
       placeOfBirth: this.fieldParser.parseString("placeOfBirth"),
       auditInformation: this.fieldParser.parseString("auditInformation"),
-      inventoryControlNumber: this.fieldParser.parseString("inventoryControlNumber"),
+      inventoryControlNumber: this.fieldParser.parseString(
+        "inventoryControlNumber"
+      ),
       lastNameAlias: this.fieldParser.parseString("lastNameAlias"),
       firstNameAlias: this.fieldParser.parseString("firstNameAlias"),
       suffixAlias: this.fieldParser.parseString("suffixAlias"),
       suffix: this.fieldParser.parseNameSuffix(),
       version: this.parseVersion(),
-      pdf417: this.data
+      pdf417: this.data,
+      expired: this.fieldParser.parseIsExpired(),
     };
 
     return new License(licenseData);
   }
 
-  parseVersion(): string | null {
+  public parseVersion(): string | null {
     return this.regex.firstMatch("\\d{6}(\\d{2})\\w+", this.data);
   }
 
@@ -81,10 +92,25 @@ export class LicenseParser {
         return new VersionFourFieldParser(this.data);
       case "05":
         return new VersionFiveFieldParser(this.data);
+      case "06":
+        return new VersionSixFieldParser(this.data);
+      case "07":
+        return new VersionSevenFieldParser(this.data);
       case "08":
         return new VersionEightFieldParser(this.data);
+      case "09":
+        return new VersionNineFieldParser(this.data);
+      case "10":
+        return new VersionTenFieldParser(this.data);
       default:
         return defaultParser;
     }
+  }
+
+  private isExpired(): boolean {
+    return (
+      this.fieldParser.parseExpirationDate() !== null &&
+      new Date() > this.fieldParser.parseExpirationDate()
+    );
   }
 }

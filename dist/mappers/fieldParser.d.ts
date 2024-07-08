@@ -20,6 +20,7 @@ export declare class FieldParser {
     parseLastName(): string | null;
     parseMiddleName(): string | null;
     parseExpirationDate(): Date | null;
+    parseIsExpired(): boolean;
     parseIssueDate(): Date | null;
     parseDateOfBirth(): Date | null;
     parseCountry(): IssuingCountry;

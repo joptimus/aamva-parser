@@ -7,6 +7,9 @@ import { VersionFourFieldParser } from '../mappers/v4/versionFourFieldParser';
 import { VersionFiveFieldParser } from '../mappers/v5/versionFiveFieldParser';
 import { VersionEightFieldParser } from '../mappers/v8/versionEightFieldParser';
 import { ParsedLicense } from '../types/aamva-parser';
+import { VersionSevenFieldParser } from '../mappers/v7/versionSevenFieldParser';
+import { VersionNineFieldParser } from '../mappers/v9/versionNineFieldParser';
+import { VersionTenFieldParser } from '../mappers/v10/versionTenFieldParser';
 
 export class Parser {
   private regex: Regex = new Regex();
@@ -71,8 +74,16 @@ export class Parser {
         return new VersionFourFieldParser(this.data);
       case "05":
         return new VersionFiveFieldParser(this.data);
-      case "08":
+        case "06":
+          return new VersionSevenFieldParser(this.data);
+          case "07":
+            return new VersionSevenFieldParser(this.data);
+            case "08":
         return new VersionEightFieldParser(this.data);
+        case "09":
+          return new VersionNineFieldParser(this.data);
+          case "10":
+            return new VersionTenFieldParser(this.data);
       default:
         return defaultParser;
     }

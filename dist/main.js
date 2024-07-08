@@ -6,8 +6,8 @@ class AAMVA {
         this.data = data;
         this.licenseParser = new parser_1.LicenseParser(data);
     }
-    parse(data) {
-        return this.licenseParser.parse(data);
+    parse() {
+        return this.licenseParser.parse();
     }
     getVersion() {
         return this.licenseParser.parseVersion();
