@@ -1,0 +1,30 @@
+{
+  "name": "aamva-parser",
+  "version": "1.0.0",
+  "description": "Plugin to parse AAMVA Drivers License Data from the PDF417 barcode",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joptimus/aamva-parser.git"
+  },
+  "keywords": [
+    "AAMVA",
+    "PDF417",
+    "DL",
+    "Drivers License",
+    "Drivers",
+    "License",
+    "Parser"
+  ],
+  "author": "joptimus",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "typescript": "^5.5.3"
+  }
+}
