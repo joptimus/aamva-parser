@@ -1,4 +1,4 @@
-import { License } from '../src/models/License';
+import { License } from '../src/models/license';
 import { Gender, EyeColor, IssuingCountry, Truncation, HairColor, NameSuffix } from '../src/enums';
 
 describe('License', () => {

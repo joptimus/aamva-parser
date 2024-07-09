@@ -33,13 +33,16 @@ describe('VersionEightFieldParser', () => {
   ZAZAAN
   ZAB
   ZAC`;
+
   const parser = new VersionEightFieldParser(data);
-console.warn(parser)
   it('should parse first name correctly', () => {
     const result = parser.parseFirstName();
-    console.warn(result)
     expect(result).toBe('JACKSON'); // Adjust based on your logic
   });
 
+  it('should parse first name correctly', () => {
+    const result = parser.parseString("city");
+    expect(result).toBe('ANYTOWN'); // Adjust based on your logic
+  });
   // Add more tests for other methods as needed
 });
