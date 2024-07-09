@@ -8,10 +8,10 @@ npm install aamva-parser
 ## Usage
 
 ```js
-import { ParseScan, IsExpired, GetVersion } from "aamva-parser"
+import { Parse, IsExpired, GetVersion } from "aamva-parser"
 
 // Ask the parser to parse it
-const parsedLicense = ParseScan(data: pdf417Data)
+const parsedLicense = Parse(data: pdf417Data)
 
 // Checks is the License is expired. Returns a boolean
 const isValidLicense = IsExpired(data: pdf417Data);
@@ -38,7 +38,7 @@ const aamvaVersion = GetVersion(data: pdf417Data);
 | City                   | Customer City                                                                                                                                        | String | `city`                    |
 | State                  | Customer State                                                                                                                                       | String | `state`                   |
 | Postal Code            | Customer Postal Code                                                                                                                                 | String | `postalCode`              |
-| Customer ID            | Unique Customer ID Number                                                                                                                            | String | `customerId`              |
+| Customer ID            | Unique Customer ID Number                                                                                                                            | String | `driversLicenseId`              |
 | Document ID            | Unique Document ID Number                                                                                                                            | String | `documentId`              |
 | Issuing Country        | Issuing Country                                                                                                                                      | Enum   | `issuingCountry`          |
 | Middle Name Truncation | Was Middle Name truncated?                                                                                                                           | Enum   | `middleNameTruncation`    |

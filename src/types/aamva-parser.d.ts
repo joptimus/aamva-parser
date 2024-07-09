@@ -19,7 +19,7 @@ export interface ParsedLicense {
   city: string | null;
   state: string | null;
   postalCode: string | null;
-  customerId: string | null;
+  driversLicenseId: string | null;
   documentId: string | null;
   country: IssuingCountry | null;
   middleNameTruncation: Truncation | null;

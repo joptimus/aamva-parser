@@ -1,7 +1,7 @@
 import { ParsedLicense } from "./parsedLicense";
 import { LicenseParser } from "./classes/parser";
 
-export function ParseScan(barcode: string): ParsedLicense {
+export function Parse(barcode: string): ParsedLicense {
   const parser = new LicenseParser(barcode);
   return parser.parse();
 }

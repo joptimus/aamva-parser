@@ -40,7 +40,7 @@ export class LicenseParser {
       city: this.fieldParser.parseString("city"),
       state: this.fieldParser.parseString("state"),
       postalCode: this.fieldParser.parseString("postalCode"),
-      customerId: this.fieldParser.parseString("customerId"),
+      driversLicenseId: this.fieldParser.parseString("driversLicenseId"),
       documentId: this.fieldParser.parseString("documentId"),
       country: this.fieldParser.parseCountry(),
       middleNameTruncation: this.fieldParser.parseTruncationStatus("middleNameTruncation"),

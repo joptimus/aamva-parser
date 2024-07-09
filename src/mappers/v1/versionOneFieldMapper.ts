@@ -6,7 +6,7 @@ export class VersionOneFieldMapper implements FieldMapping {
   constructor() {
     const fieldMapper = new FieldMapper();
     this.fields = { ...fieldMapper.fields }; // Copy fields from FieldMapper
-    this.fields["customerId"] = "DBJ";
+    this.fields["driversLicenseId"] = "DBJ";
     this.fields["lastName"] = "DAB";
     this.fields["driverLicenseName"] = "DAA";
   }

@@ -15,7 +15,7 @@ export class License implements ParsedLicense {
   city: string | null = null;
   state: string | null = null;
   postalCode: string | null = null;
-  customerId: string | null = null;
+  driversLicenseId: string | null = null;
   documentId: string | null = null;
   country: IssuingCountry = IssuingCountry.Unknown;
   middleNameTruncation: Truncation = Truncation.None;

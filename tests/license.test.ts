@@ -18,7 +18,7 @@ describe('License', () => {
     expect(license.city).toBeNull();
     expect(license.state).toBeNull();
     expect(license.postalCode).toBeNull();
-    expect(license.customerId).toBeNull();
+    expect(license.driversLicenseId).toBeNull();
     expect(license.documentId).toBeNull();
     expect(license.country).toBe(IssuingCountry.Unknown);
     expect(license.middleNameTruncation).toBe(Truncation.None);

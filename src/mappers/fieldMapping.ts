@@ -29,7 +29,7 @@ export class FieldMapper implements FieldMapping {
     city: "DAI",
     state: "DAJ",
     postalCode: "DAK",
-    customerId: "DAQ",
+    driversLicenseId: "DAQ",
     documentId: "DCF",
     country: "DCG",
     middleNameTruncation: "DDG",
