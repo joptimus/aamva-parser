@@ -51,7 +51,7 @@ const aamvaVersion = GetVersion(data: pdf417Data);
 | First Name Alias       | Other First Name by which the cardholder is known.                                                                                                   | String | `firstNameAlias`          |
 | Suffix Alias           | Other suffix by which cardholder is known                                                                                                            | String | `suffixAlias`             |
 | Name Suffix            | Name Suffix                                                                                                                                          | Enum   | `suffix`                  |
-| Weight (lbs)        | Weight in lbs Suffix                                                                                                                                          | string   | `weight`                  |
+| Weight (lbs)        | Weight in lbs                                                                                                                                           | string   | `weight`                  |
 
 ### AAMVA Element IDs
 
