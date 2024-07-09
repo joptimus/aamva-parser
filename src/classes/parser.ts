@@ -58,6 +58,7 @@ export class LicenseParser {
       version: this.parseVersion(),
       pdf417: this.data,
       expired: this.fieldParser.parseIsExpired(),
+      weight: this.fieldParser.parseString("weight"),
     };
 
     return new License(licenseData);

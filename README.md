@@ -51,6 +51,7 @@ const aamvaVersion = GetVersion(data: pdf417Data);
 | First Name Alias       | Other First Name by which the cardholder is known.                                                                                                   | String | `firstNameAlias`          |
 | Suffix Alias           | Other suffix by which cardholder is known                                                                                                            | String | `suffixAlias`             |
 | Name Suffix            | Name Suffix                                                                                                                                          | Enum   | `suffix`                  |
+| Weight (lbs)        | Weight in lbs Suffix                                                                                                                                          | string   | `weight`                  |
 
 ### AAMVA Element IDs
 
@@ -75,7 +76,7 @@ Below is a table of AAMVA Element Ids and the fields to which they map by AAMVA 
 | City                   |  **DAI**  |  **DAI**  |  **DAI**  |  **DAI**  |  **DAI**  |  **DAI**  |  **DAI**  |  **DAI**  |  **DAI**  |     Y     |
 | State                  |  **DAJ**  |  **DAJ**  |  **DAJ**  |  **DAJ**  |  **DAJ**  |  **DAJ**  |  **DAJ**  |  **DAJ**  |  **DAJ**  |     Y     |
 | Postal Code            |  **DAK**  |  **DAK**  |  **DAK**  |  **DAK**  |  **DAK**  |  **DAK**  |  **DAK**  |  **DAK**  |  **DAK**  |     Y     |
-| Customer ID            |  **DBJ**  |  **DAQ**  |  **DAQ**  |  **DAQ**  |  **DAQ**  |  **DAQ**  |  **DAQ**  |  **DAQ**  |  **DAQ**  |     Y     |
+| Drivers License ID     |  **DBJ**  |  **DAQ**  |  **DAQ**  |  **DAQ**  |  **DAQ**  |  **DAQ**  |  **DAQ**  |  **DAQ**  |  **DAQ**  |     Y     |
 | Document ID            |   `--`    |  **DCF**  |  **DCF**  |  **DCF**  |  **DCF**  |  **DCF**  |  **DCF**  |  **DCF**  |  **DCF**  |     Y     |
 | Issuing Country        |   `--`    |  **DCG**  |  **DCG**  |  **DCG**  |  **DCG**  |  **DCG**  |  **DCG**  |  **DCG**  |  **DCG**  |     Y     |
 | Middle Name Truncation |   `--`    |  **DDG**  |   `--`    |  **DDG**  |  **DDG**  |  **DDG**  |  **DDG**  |  **DDG**  |  **DDG**  |     Y     |
@@ -90,6 +91,7 @@ Below is a table of AAMVA Element Ids and the fields to which they map by AAMVA 
 | First Name Alias       |    DBP    |    DBG    |    DBG    |    DBG    |    DBG    |    DBG    |    DBG    |    DBG    |    DBG    |     Y     |
 | Suffix Alias           |    DBR    |   `--`    |    DBS    |    DBS    |    DBS    |    DBS    |    DBS    |    DBS    |    DBS    |     Y     |
 | Name Suffix            |    DBN    |  **DCU**  |    DCU    |    DCU    |    DCU    |    DCU    |    DCU    |    DCU    |    DCU    |     Y     |
+| Weight (lbs)           |   `--`    |    DAW    |    DAW    |    DAW    |    DAW    |    DAW    |    DAW    |    DAW    |    DAW    |     Y     |
 
 ### Example of a raw driver's license payload
 

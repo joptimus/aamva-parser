@@ -35,4 +35,5 @@ export interface ParsedLicense {
   expired?: boolean;
   hasBeenIssued(): boolean;
   isAcceptable(): boolean;
+  weight?: string;
 }

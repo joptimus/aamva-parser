@@ -44,6 +44,7 @@ export class FieldMapper implements FieldMapping {
     firstNameAlias: "DBG",
     suffixAlias: "DBS",
     suffix: "DCU",
+    weight: "DAW"
   };
 
   // Getter for fields
