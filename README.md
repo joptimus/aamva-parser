@@ -131,3 +131,42 @@ ZAZAAN
 ZAB
 ZAC
 ```
+
+### Example Response from payload
+
+```js
+{
+auditInformation:  null,
+city:  "ANYTOWN”,
+country:  "United States”,
+customerId: “D12345678”,
+dateOfBirth: Sat Jan 31 1970 00:00:00 GMT-0700 (Mountain Standard Time),
+documentId: "83D9BN217QO983B1”,
+expirationDate: Wed Jan 31 2035 00:00:00 GMT-0700 (Mountain Standard Time),
+expired: false,
+eyeColor: "Green”,
+firstName: "JOHN”,
+firstNameAlias: null,
+firstNameTruncation: "None”,
+gender: "Male”,
+hairColor: "Brown”,
+height: 69,
+inventoryControlNumber: "12345678900000000000”,
+issueDate: Mon Aug 24 2015 00:00:00 GMT-0700 (Mountain Standard Time),
+lastName: "PUBLIC”,
+lastNameAlias: null,
+lastNameTruncation: "None”,
+middleName: "QUINCY”,
+middleNameTruncation: "None”,
+pdf417: "@\n\n  ANSI 636026080102DL00410288ZA03290015DLDAQD12345678\n  DCSPUBLIC\n  DDEN\n  DACJOHN\n  DDFN\n  DADQUINCY\n  DDGN\n  DCAD\n  DCBNONE\n  DCDNONE\n  DBD08242015\n  DBB01311970\n  DBA01312035\n  DBC1\n  DAU069 in\n  DAYGRN\n  DAG789 E OAK ST\n  DAIANYTOWN\n  DAJCA\n  DAK902230000  \n  DCF83D9BN217QO983B1\n  DCGUSA\n  DAW180\n  DAZBRO\n  DCK12345678900000000000\n  DDB02142014\n  DDK1\n  ZAZAAN\n  ZAB\n  ZAC1”,
+placeOfBirth: null,
+postalCode: "902230000”,
+state: "CA”,
+streetAddress: "789 E OAK ST”,
+streetAddressSupplement: null,
+suffix: "Unknown”,
+suffixAlias: null,
+version: "08”,
+weight: “180”
+}
+    ```
