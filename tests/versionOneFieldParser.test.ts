@@ -42,7 +42,6 @@ describe('VersionOneFieldParser', () => {
 
   it('should parse last name correctly', () => {
     const result = parser.parseLastName();
-    console.warn(parser, result)
     expect(result).toBe('PUBLIC'); // Adjust based on your logic
   });
 

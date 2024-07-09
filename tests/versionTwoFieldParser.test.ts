@@ -37,7 +37,6 @@ describe('VersionTwoFieldParser', () => {
 
   it('should parse first name correctly', () => {
     const result = parser.parseFirstName();
-    console.warn(result, parser)
     expect(result).toBe('JOHN'); // Adjust based on your logic
   });
 
