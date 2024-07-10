@@ -170,3 +170,7 @@ version: "08”,
 weight: “180”
 }
 ```
+
+### Credits
+
+Inspired from the Swift version found at https://github.com/ksoftllc/license-parser
