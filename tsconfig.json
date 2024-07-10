@@ -3,10 +3,12 @@
         "outDir": "./dist",
         "rootDir": "./src",
         "strict": false,
-        "module": "CommonJS",
+        "module": "ES6",
+        "moduleResolution": "node",  
         "target": "ES6",
         "esModuleInterop": true,
-        "declaration": true
+        "declaration": true,
+        "skipLibCheck": true,     
     },
     "include": ["src/**/*.ts"],
     "exclude": ["node_modules", "tests"]
