@@ -19,8 +19,13 @@ export class LicenseParser {
   public fieldParser: FieldParser;
 
   constructor(data: string) {
-    this.data = data;
+    this.data = this.cleanString(data);
     this.fieldParser = new FieldParser(data);
+  }
+
+  private cleanString(data: string): string {
+    // Remove non-printable characters
+    return data.replace(/\u001e/g, '').replace(/\r/g, '');
   }
 
   public parse(): ParsedLicense {
