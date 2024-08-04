@@ -19,14 +19,32 @@ export class LicenseParser {
   public fieldParser: FieldParser;
 
   constructor(data: string) {
-    this.data = this.cleanString(data);
+    this.data = this.cleanAndFormatString(data);
     this.fieldParser = new FieldParser(data);
   }
 
-  private cleanString(data: string): string {
+  private cleanAndFormatString(data: string): string {
     // Remove non-printable characters
-    return data.replace(/\u001e/g, '').replace(/\r/g, '');
+    data = data.replace(/\u001e/g, '').replace(/\r/g, '');
+
+    // Split the string into lines
+    const lines = data.split('\n');
+    console.warn('After splitting into lines: ', lines);
+
+    // Remove any empty lines and trim whitespace
+    const cleanedLines = lines.map(line => line.trim()).filter(line => line.length > 0);
+
+    // Join the lines back together with newline characters
+    data = cleanedLines.join('\n');
+
+    // Add leading '@' if not already present
+    if (!data.startsWith('@')) {
+      data = '@\n' + data;
+    }
+
+    return data;
   }
+
 
   public parse(): ParsedLicense {
     this.fieldParser = this.versionBasedFieldParsing(this.parseVersion());
