@@ -1,15 +1,17 @@
 {
     "compilerOptions": {
-        "outDir": "./dist",
-        "rootDir": "./src",
-        "strict": false,
-        "module": "ES6",
-        "moduleResolution": "node",  
-        "target": "ES6",
-        "esModuleInterop": true,
-        "declaration": true,
-        "skipLibCheck": true,     
+      "outDir": "./dist",
+      "rootDir": "./src",
+      "strict": false,
+      "module": "ES2020",                   // more compatible with ESM tooling
+      "moduleResolution": "node",
+      "target": "ES6",
+      "esModuleInterop": true,
+      "declaration": true,
+      "declarationDir": "./dist",
+      "skipLibCheck": true
     },
     "include": ["src/**/*.ts"],
     "exclude": ["node_modules", "tests"]
-}
+  }
+  

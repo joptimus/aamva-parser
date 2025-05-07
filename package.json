@@ -12,7 +12,7 @@
     }
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && copy .\\dist\\index.js .\\dist\\index.mjs",
     "test": "jest"
   },
   "repository": {
@@ -26,7 +26,9 @@
     "Drivers License",
     "Drivers",
     "License",
-    "Parser"
+    "Parser",
+    "aamva",
+    "aamva parser"
   ],
   "author": "joptimus",
   "license": "ISC",
