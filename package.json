@@ -12,7 +12,10 @@
     }
   },
   "scripts": {
-    "build": "tsc && copy .\\dist\\index.js .\\dist\\index.mjs",
+    "build": "tsc && cp ./dist/index.js ./dist/index.mjs",
+    "test": "jest"
+}
+
     "test": "jest"
   },
   "repository": {
