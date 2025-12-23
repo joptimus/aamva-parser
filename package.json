@@ -23,18 +23,33 @@
     "url": "https://github.com/joptimus/aamva-parser.git"
   },
   "keywords": [
-    "AAMVA",
-    "PDF417",
-    "DL",
-    "Drivers License",
-    "Drivers",
-    "License",
-    "Parser",
     "aamva",
-    "aamva parser"
+    "pdf417",
+    "barcode",
+    "driver-license",
+    "drivers-license",
+    "id-card",
+    "identification",
+    "parser",
+    "scanner",
+    "reader",
+    "age-verification",
+    "id-verification",
+    "dmv",
+    "real-id",
+    "usa",
+    "canada"
   ],
   "author": "joptimus",
   "license": "ISC",
+  "homepage": "https://github.com/joptimus/aamva-parser#readme",
+  "bugs": {
+    "url": "https://github.com/joptimus/aamva-parser/issues"
+  },
+  "sideEffects": false,
+  "engines": {
+    "node": ">=20"
+  },
   "devDependencies": {
     "@types/jest": "^29.5.12",
     "jest": "^29.7.0",

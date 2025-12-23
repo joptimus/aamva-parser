@@ -4,6 +4,10 @@ A TypeScript/JavaScript library to parse AAMVA (American Association of Motor Ve
 
 Supports AAMVA versions 1-10 (CDS 2000-2016).
 
+## Requirements
+
+- Node.js >= 20
+
 ## Installation
 
 ```bash
@@ -39,6 +43,27 @@ const version = GetVersion(barcodeData); // "08"
 const { Parse, IsExpired, GetVersion } = require("aamva-parser");
 
 const license = Parse(barcodeData);
+```
+
+### TypeScript
+
+```ts
+import {
+  Parse,
+  ParsedLicense,
+  Gender,
+  EyeColor
+} from "aamva-parser";
+
+const license: ParsedLicense = Parse(barcodeData);
+
+if (license.gender === Gender.Male) {
+  console.log("Male");
+}
+
+if (license.eyeColor === EyeColor.Brown) {
+  console.log("Brown eyes");
+}
 ```
 
 ## API
