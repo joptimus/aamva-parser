@@ -5,8 +5,4 @@ export class VersionThreeFieldParser extends FieldParser {
   constructor(data: string) {
     super(data, new VersionThreeFieldMapper());
   }
-
-  getDateFormat(): string {
-    return "yyyyMMdd";
-  }
 }

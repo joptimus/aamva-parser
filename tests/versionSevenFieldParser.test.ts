@@ -34,13 +34,9 @@ describe('VersionSevenFieldParser', () => {
   ZAB
   ZAC`;
   const parser = new VersionSevenFieldParser(data);
-  console.warn(parser)
 
   it('should parse first name correctly', () => {
     const result = parser.parseFirstName();
-    console.warn(result)
-    expect(result).toBe('JOHN'); // Adjust based on your logic
+    expect(result).toBe('JOHN');
   });
-
-  // Add more tests for other methods as needed
 });

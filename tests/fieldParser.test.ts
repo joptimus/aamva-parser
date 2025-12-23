@@ -39,10 +39,6 @@ describe('FieldParser', () => {
 
   it('should parse strings correctly', () => {
     const result = parser.parseString('state');
-    console.warn('Field Parser test', result);
-    expect(result).toBe('TX'); // Adjust based on your logic
+    expect(result).toBe('TX');
   });
-
-
-  // Add more tests for other methods
 });

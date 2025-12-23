@@ -39,13 +39,6 @@ describe('VersionThreeFieldParser', () => {
 
   it('should parse CITY name correctly', () => {
     const result = parser.parseString("city");
-    expect(result).toBe('WAUKESHA'); // Adjust based on your logic
+    expect(result).toBe('WAUKESHA');
   });
-
-  it('should return the correct date format', () => {
-    const dateFormat = parser.getDateFormat();
-    expect(dateFormat).toBe('yyyyMMdd');
-  });
-
-  // Add more tests for other methods as needed
 });

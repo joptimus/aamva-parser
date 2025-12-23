@@ -7,10 +7,6 @@ export class VersionOneFieldParser extends FieldParser {
     super(data, new VersionOneFieldMapper());
   }
 
-  getDateFormat(): string {
-    return "yyyyMMdd";
-  }
-
   parseFirstName(): string | null {
     const firstName = this.parseString("firstName");
     return firstName || this.parseDriverLicenseName("firstName");

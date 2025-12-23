@@ -46,10 +46,6 @@ export class FieldParser {
     return isNaN(parsedDate.getTime()) ? null : parsedDate;
   }
 
-  getDateFormat(): string {
-    return "MMddyyyy";
-  }
-
   parseFirstName(): string | null {
     return this.parseString("firstName");
   }
