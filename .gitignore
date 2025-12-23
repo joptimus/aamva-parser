@@ -9,3 +9,7 @@ dist
 logs
 *.log
 npm-debug.log*
+
+# Claude
+.claude/
+CLAUDE.md

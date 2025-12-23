@@ -29,7 +29,6 @@ export class LicenseParser {
 
     // Split the string into lines
     const lines = data.split('\n');
-    console.warn('After splitting into lines: ', lines);
 
     // Remove any empty lines and trim whitespace
     const cleanedLines = lines.map(line => line.trim()).filter(line => line.length > 0);
@@ -123,9 +122,7 @@ export class LicenseParser {
   }
 
   public isExpired(): boolean {
-    return (
-      this.fieldParser.parseExpirationDate() !== null &&
-      new Date() > this.fieldParser.parseExpirationDate()
-    );
+    const expirationDate = this.fieldParser.parseExpirationDate();
+    return expirationDate !== null && new Date() > expirationDate;
   }
 }

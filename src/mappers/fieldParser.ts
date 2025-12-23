@@ -67,10 +67,8 @@ export class FieldParser {
   }
 
   parseIsExpired(): boolean {
-    return (
-      this.parseExpirationDate() !== null &&
-      new Date() > this.parseExpirationDate()
-    );
+    const expirationDate = this.parseExpirationDate();
+    return expirationDate !== null && new Date() > expirationDate;
   }
 
   parseIssueDate(): Date | null {
