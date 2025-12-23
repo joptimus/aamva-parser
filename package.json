@@ -1,6 +1,6 @@
 {
   "name": "aamva-parser",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Parse AAMVA PDF417 barcode data from driver's licenses and ID cards",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
