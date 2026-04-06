@@ -12,6 +12,10 @@ export class VersionTwelveFieldMapper implements FieldMapping {
       enhancedCredentialIndicator: "DDO",
       permitIndicator: "DDP",
     };
+    // CDS 2025 removes these fields from the barcode
+    delete this.fields['lastNameAlias'];
+    delete this.fields['firstNameAlias'];
+    delete this.fields['suffixAlias'];
   }
 
   fieldFor(key: string): string {

@@ -1,7 +1,7 @@
 import { VersionTwelveFieldParser } from '../src/mappers/v12/versionTwelveFieldParser';
 
 describe('VersionTwelveFieldParser', () => {
-  // v12 barcode: has DDM/DDN/DDO/DDP, no DBN/DBG/DBS/DCL/DDC
+  // v12 barcode: has DDM/DDN/DDO/DDP, removes DBN/DBG/DBS from mapper
   const data = `
 @
 ANSI 636015120002DL00410280ZT01211007DLDCAC
