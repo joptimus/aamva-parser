@@ -35,5 +35,9 @@ export interface ParsedLicense {
   expired?: boolean;
   hasBeenIssued(): boolean;
   isAcceptable(): boolean;
+  cdlIndicator?: string | null;
+  nonDomiciledIndicator?: string | null;
+  enhancedCredentialIndicator?: string | null;
+  permitIndicator?: string | null;
   weight?: string;
 }

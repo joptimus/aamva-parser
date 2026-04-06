@@ -74,4 +74,25 @@ describe('License', () => {
     const incompleteLicense = new License();
     expect(incompleteLicense.isAcceptable()).toBe(false);
   });
+
+  it('should store CDS 2025 fields', () => {
+    const license = new License({
+      cdlIndicator: '1',
+      nonDomiciledIndicator: '1',
+      enhancedCredentialIndicator: '1',
+      permitIndicator: '1',
+    });
+    expect(license.cdlIndicator).toBe('1');
+    expect(license.nonDomiciledIndicator).toBe('1');
+    expect(license.enhancedCredentialIndicator).toBe('1');
+    expect(license.permitIndicator).toBe('1');
+  });
+
+  it('should default CDS 2025 fields to null', () => {
+    const license = new License({});
+    expect(license.cdlIndicator).toBeNull();
+    expect(license.nonDomiciledIndicator).toBeNull();
+    expect(license.enhancedCredentialIndicator).toBeNull();
+    expect(license.permitIndicator).toBeNull();
+  });
 });

@@ -30,6 +30,10 @@ export class License implements ParsedLicense {
   firstNameAlias: string | null = null;
   suffixAlias: string | null = null;
   suffix: NameSuffix = NameSuffix.Unknown;
+  cdlIndicator: string | null = null;
+  nonDomiciledIndicator: string | null = null;
+  enhancedCredentialIndicator: string | null = null;
+  permitIndicator: string | null = null;
   version: string | null = null;
   pdf417: string | null = null;
   expired: boolean;
