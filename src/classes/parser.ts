@@ -10,6 +10,8 @@ import { VersionSevenFieldParser } from "../mappers/v7/versionSevenFieldParser";
 import { VersionEightFieldParser } from "../mappers/v8/versionEightFieldParser";
 import { VersionNineFieldParser } from "../mappers/v9/versionNineFieldParser";
 import { VersionTenFieldParser } from "../mappers/v10/versionTenFieldParser";
+import { VersionElevenFieldParser } from "../mappers/v11/versionElevenFieldParser";
+import { VersionTwelveFieldParser } from "../mappers/v12/versionTwelveFieldParser";
 import { ParsedLicense } from "../parsedLicense";
 import { License } from "../models/license";
 
@@ -81,6 +83,10 @@ export class LicenseParser {
       pdf417: this.data,
       expired: this.fieldParser.parseIsExpired(),
       weight: this.fieldParser.parseString("weight"),
+      cdlIndicator: this.fieldParser.parseString("cdlIndicator"),
+      nonDomiciledIndicator: this.fieldParser.parseString("nonDomiciledIndicator"),
+      enhancedCredentialIndicator: this.fieldParser.parseString("enhancedCredentialIndicator"),
+      permitIndicator: this.fieldParser.parseString("permitIndicator"),
     };
 
     return new License(licenseData);
@@ -116,6 +122,10 @@ export class LicenseParser {
         return new VersionNineFieldParser(this.data);
       case "10":
         return new VersionTenFieldParser(this.data);
+      case "11":
+        return new VersionElevenFieldParser(this.data);
+      case "12":
+        return new VersionTwelveFieldParser(this.data);
       default:
         return defaultParser;
     }
