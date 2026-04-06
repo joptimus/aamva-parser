@@ -2,7 +2,7 @@
 
 A TypeScript/JavaScript library to parse AAMVA (American Association of Motor Vehicle Administrators) PDF417 barcode data from driver's licenses and ID cards.
 
-Supports AAMVA versions 1-10 (CDS 2000-2016).
+Supports AAMVA versions 1-12 (CDS 2000-2025).
 
 ## Requirements
 
@@ -113,6 +113,10 @@ Returns the AAMVA version number (e.g., "08" for version 8).
 | First Name Alias | `string` | `firstNameAlias` |
 | Last Name Alias | `string` | `lastNameAlias` |
 | Suffix Alias | `string` | `suffixAlias` |
+| CDL Indicator | `string` | `cdlIndicator` |
+| Non-Domiciled Indicator | `string` | `nonDomiciledIndicator` |
+| Enhanced Credential Indicator | `string` | `enhancedCredentialIndicator` |
+| Permit Indicator | `string` | `permitIndicator` |
 | Is Expired | `boolean` | `expired` |
 | AAMVA Version | `string` | `version` |
 | Raw Barcode Data | `string` | `pdf417` |
@@ -130,6 +134,8 @@ Returns the AAMVA version number (e.g., "08" for version 8).
 | 2012 | 2012 | 08 | Yes |
 | 2013 | 2013 | 09 | Yes |
 | 2016 | 2016 | 10 | Yes |
+| 2020 | 2020 | 11 | Yes |
+| 2025 | 2025 | 12 | Yes |
 
 ## Example
 
@@ -202,25 +208,29 @@ ZAC
 
 **Bold** = Mandatory field | `--` = Not included in version
 
-| Field | v1 | v2 | v3 | v4 | v5 | v6 | v7 | v8 | v9 | v10 |
-|:------|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:---:|
-| First Name | DAC | **DCT** | **DCT** | **DAC** | **DAC** | **DAC** | **DAC** | **DAC** | **DAC** | **DAC** |
-| Last Name | DAB | **DCS** | **DCS** | **DCS** | **DCS** | **DCS** | **DCS** | **DCS** | **DCS** | **DCS** |
-| Middle Name | DAD | **DAD** | **DAD** | **DAD** | **DAD** | **DAD** | **DAD** | **DAD** | **DAD** | **DAD** |
-| Expiration Date | **DBA** | **DBA** | **DBA** | **DBA** | **DBA** | **DBA** | **DBA** | **DBA** | **DBA** | **DBA** |
-| Issue Date | **DBD** | **DBD** | **DBD** | **DBD** | **DBD** | **DBD** | **DBD** | **DBD** | **DBD** | **DBD** |
-| Date of Birth | **DBB** | **DBB** | **DBB** | **DBB** | **DBB** | **DBB** | **DBB** | **DBB** | **DBB** | **DBB** |
-| Gender | **DBC** | **DBC** | **DBC** | **DBC** | **DBC** | **DBC** | **DBC** | **DBC** | **DBC** | **DBC** |
-| Eye Color | DAY | **DAY** | **DAY** | **DAY** | **DAY** | **DAY** | **DAY** | **DAY** | **DAY** | **DAY** |
-| Height | DAU | **DAU** | **DAU** | **DAU** | **DAU** | **DAU** | **DAU** | **DAU** | **DAU** | **DAU** |
-| Street Address | **DAG** | **DAG** | **DAG** | **DAG** | **DAG** | **DAG** | **DAG** | **DAG** | **DAG** | **DAG** |
-| City | **DAI** | **DAI** | **DAI** | **DAI** | **DAI** | **DAI** | **DAI** | **DAI** | **DAI** | **DAI** |
-| State | **DAJ** | **DAJ** | **DAJ** | **DAJ** | **DAJ** | **DAJ** | **DAJ** | **DAJ** | **DAJ** | **DAJ** |
-| Postal Code | **DAK** | **DAK** | **DAK** | **DAK** | **DAK** | **DAK** | **DAK** | **DAK** | **DAK** | **DAK** |
-| License ID | **DBJ** | **DAQ** | **DAQ** | **DAQ** | **DAQ** | **DAQ** | **DAQ** | **DAQ** | **DAQ** | **DAQ** |
-| Document ID | `--` | **DCF** | **DCF** | **DCF** | **DCF** | **DCF** | **DCF** | **DCF** | **DCF** | **DCF** |
-| Country | `--` | **DCG** | **DCG** | **DCG** | **DCG** | **DCG** | **DCG** | **DCG** | **DCG** | **DCG** |
-| Weight | `--` | DAW | DAW | DAW | DAW | DAW | DAW | DAW | DAW | DAW |
+| Field | v1 | v2 | v3 | v4 | v5 | v6 | v7 | v8 | v9 | v10 | v11 | v12 |
+|:------|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:---:|:---:|:---:|
+| First Name | DAC | **DCT** | **DCT** | **DAC** | **DAC** | **DAC** | **DAC** | **DAC** | **DAC** | **DAC** | **DAC** | **DAC** |
+| Last Name | DAB | **DCS** | **DCS** | **DCS** | **DCS** | **DCS** | **DCS** | **DCS** | **DCS** | **DCS** | **DCS** | **DCS** |
+| Middle Name | DAD | **DAD** | **DAD** | **DAD** | **DAD** | **DAD** | **DAD** | **DAD** | **DAD** | **DAD** | **DAD** | **DAD** |
+| Expiration Date | **DBA** | **DBA** | **DBA** | **DBA** | **DBA** | **DBA** | **DBA** | **DBA** | **DBA** | **DBA** | **DBA** | **DBA** |
+| Issue Date | **DBD** | **DBD** | **DBD** | **DBD** | **DBD** | **DBD** | **DBD** | **DBD** | **DBD** | **DBD** | **DBD** | **DBD** |
+| Date of Birth | **DBB** | **DBB** | **DBB** | **DBB** | **DBB** | **DBB** | **DBB** | **DBB** | **DBB** | **DBB** | **DBB** | **DBB** |
+| Gender | **DBC** | **DBC** | **DBC** | **DBC** | **DBC** | **DBC** | **DBC** | **DBC** | **DBC** | **DBC** | **DBC** | **DBC** |
+| Eye Color | DAY | **DAY** | **DAY** | **DAY** | **DAY** | **DAY** | **DAY** | **DAY** | **DAY** | **DAY** | **DAY** | **DAY** |
+| Height | DAU | **DAU** | **DAU** | **DAU** | **DAU** | **DAU** | **DAU** | **DAU** | **DAU** | **DAU** | **DAU** | **DAU** |
+| Street Address | **DAG** | **DAG** | **DAG** | **DAG** | **DAG** | **DAG** | **DAG** | **DAG** | **DAG** | **DAG** | **DAG** | **DAG** |
+| City | **DAI** | **DAI** | **DAI** | **DAI** | **DAI** | **DAI** | **DAI** | **DAI** | **DAI** | **DAI** | **DAI** | **DAI** |
+| State | **DAJ** | **DAJ** | **DAJ** | **DAJ** | **DAJ** | **DAJ** | **DAJ** | **DAJ** | **DAJ** | **DAJ** | **DAJ** | **DAJ** |
+| Postal Code | **DAK** | **DAK** | **DAK** | **DAK** | **DAK** | **DAK** | **DAK** | **DAK** | **DAK** | **DAK** | **DAK** | **DAK** |
+| License ID | **DBJ** | **DAQ** | **DAQ** | **DAQ** | **DAQ** | **DAQ** | **DAQ** | **DAQ** | **DAQ** | **DAQ** | **DAQ** | **DAQ** |
+| Document ID | `--` | **DCF** | **DCF** | **DCF** | **DCF** | **DCF** | **DCF** | **DCF** | **DCF** | **DCF** | **DCF** | **DCF** |
+| Country | `--` | **DCG** | **DCG** | **DCG** | **DCG** | **DCG** | **DCG** | **DCG** | **DCG** | **DCG** | **DCG** | **DCG** |
+| Weight | `--` | DAW | DAW | DAW | DAW | DAW | DAW | DAW | DAW | DAW | DAW | DAW |
+| CDL Indicator | `--` | `--` | `--` | `--` | `--` | `--` | `--` | `--` | `--` | `--` | `--` | DDM |
+| Non-Domiciled Indicator | `--` | `--` | `--` | `--` | `--` | `--` | `--` | `--` | `--` | `--` | `--` | DDN |
+| Enhanced Credential | `--` | `--` | `--` | `--` | `--` | `--` | `--` | `--` | `--` | `--` | `--` | DDO |
+| Permit Indicator | `--` | `--` | `--` | `--` | `--` | `--` | `--` | `--` | `--` | `--` | `--` | DDP |
 
 ## License
 
