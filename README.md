@@ -1,8 +1,13 @@
 # aamva-parser
 
-A TypeScript/JavaScript library to parse AAMVA (American Association of Motor Vehicle Administrators) PDF417 barcode data from driver's licenses and ID cards.
+[![npm version](https://img.shields.io/npm/v/aamva-parser.svg)](https://www.npmjs.com/package/aamva-parser)
+[![npm downloads](https://img.shields.io/npm/dm/aamva-parser.svg)](https://www.npmjs.com/package/aamva-parser)
+[![TypeScript](https://img.shields.io/badge/TypeScript-ready-blue.svg)](https://www.typescriptlang.org/)
+[![License: ISC](https://img.shields.io/badge/License-ISC-green.svg)](https://opensource.org/licenses/ISC)
 
-Supports AAMVA versions 1-12 (CDS 2000-2025).
+Parse AAMVA PDF417 barcode data from US and Canadian driver's licenses and ID cards. TypeScript-ready, zero dependencies.
+
+Supports AAMVA versions 1-12 (CDS 2000-2025). Built-in helpers for age verification, name formatting, and CDL detection.
 
 ## Requirements
 
