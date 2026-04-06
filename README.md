@@ -19,10 +19,10 @@ npm install aamva-parser
 ### ES Modules
 
 ```js
-import { Parse, IsExpired, GetVersion } from "aamva-parser";
+import { parse, isExpired, getVersion, getAge, isUnder21, getFullName } from "aamva-parser";
 
 // Parse the PDF417 barcode data
-const license = Parse(barcodeData);
+const license = parse(barcodeData);
 
 console.log(license.firstName);    // "JOHN"
 console.log(license.lastName);     // "PUBLIC"
@@ -30,32 +30,37 @@ console.log(license.dateOfBirth);  // Date object
 console.log(license.expirationDate); // Date object
 console.log(license.expired);      // false
 
+// Quick helpers
+const age = getAge(barcodeData);        // 56
+const under21 = isUnder21(barcodeData); // false
+const name = getFullName(barcodeData);  // "JOHN QUINCY PUBLIC"
+
 // Check if license is expired
-const isExpired = IsExpired(barcodeData); // boolean
+const expired = isExpired(barcodeData); // boolean
 
 // Get AAMVA version
-const version = GetVersion(barcodeData); // "08"
+const version = getVersion(barcodeData); // "08"
 ```
 
 ### CommonJS
 
 ```js
-const { Parse, IsExpired, GetVersion } = require("aamva-parser");
+const { parse, isExpired, getVersion } = require("aamva-parser");
 
-const license = Parse(barcodeData);
+const license = parse(barcodeData);
 ```
 
 ### TypeScript
 
 ```ts
 import {
-  Parse,
+  parse,
   ParsedLicense,
   Gender,
   EyeColor
 } from "aamva-parser";
 
-const license: ParsedLicense = Parse(barcodeData);
+const license: ParsedLicense = parse(barcodeData);
 
 if (license.gender === Gender.Male) {
   console.log("Male");
@@ -68,17 +73,55 @@ if (license.eyeColor === EyeColor.Brown) {
 
 ## API
 
-### `Parse(barcodeData: string): ParsedLicense`
+### `parse(barcodeData: string): ParsedLicense`
 
 Parses the raw PDF417 barcode string and returns a `ParsedLicense` object with all extracted fields.
 
-### `IsExpired(barcodeData: string): boolean`
+### `getVersion(barcodeData: string): string | null`
+
+Returns the AAMVA version number (e.g., "08" for version 8).
+
+### `isExpired(barcodeData: string): boolean`
 
 Returns `true` if the license expiration date has passed.
 
-### `GetVersion(barcodeData: string): string | null`
+### `getAge(barcodeData: string): number | null`
 
-Returns the AAMVA version number (e.g., "08" for version 8).
+Returns the person's age in years, calculated from date of birth. Returns `null` if no date of birth is present.
+
+### `isUnder21(barcodeData: string): boolean`
+
+Returns `true` if the person is under 21. Returns `false` if 21+ or if no date of birth is present.
+
+### `isUnder18(barcodeData: string): boolean`
+
+Returns `true` if the person is under 18. Returns `false` if 18+ or if no date of birth is present.
+
+### `isAcceptable(barcodeData: string): boolean`
+
+Returns `true` if the license is not expired, has been issued, and contains all required fields (name, address, dates, document ID).
+
+### `getFullName(barcodeData: string): string | null`
+
+Returns the full name formatted as "FIRST MIDDLE LAST". Omits middle name if not present. Returns `null` if no name fields exist.
+
+### `getState(barcodeData: string): string | null`
+
+Returns the state/jurisdiction code (e.g., "CA", "TX"). Returns `null` if not present.
+
+### `isCDL(barcodeData: string): boolean`
+
+Returns `true` if the license is a Commercial Driver's License (v12/CDS 2025 only).
+
+### Deprecated Functions
+
+The following PascalCase functions still work but are deprecated. Use the camelCase versions instead:
+
+| Deprecated | Use Instead |
+|:-----------|:------------|
+| `Parse()` | `parse()` |
+| `GetVersion()` | `getVersion()` |
+| `IsExpired()` | `isExpired()` |
 
 ## Supported Fields
 
