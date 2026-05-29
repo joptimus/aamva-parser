@@ -3,11 +3,31 @@
 [![npm version](https://img.shields.io/npm/v/aamva-parser.svg)](https://www.npmjs.com/package/aamva-parser)
 [![npm downloads](https://img.shields.io/npm/dm/aamva-parser.svg)](https://www.npmjs.com/package/aamva-parser)
 [![TypeScript](https://img.shields.io/badge/TypeScript-ready-blue.svg)](https://www.typescriptlang.org/)
-[![License: ISC](https://img.shields.io/badge/License-ISC-green.svg)](https://opensource.org/licenses/ISC)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 Parse AAMVA PDF417 barcode data from US and Canadian driver's licenses and ID cards. TypeScript-ready, zero dependencies.
 
-Supports AAMVA versions 1-12 (CDS 2000-2025). Built-in helpers for age verification, name formatting, and CDL detection.
+## Features
+
+- Supports AAMVA versions 1-12 (CDS 2000-2025)
+- Zero dependencies
+- TypeScript-ready with full type definitions
+- ESM and CommonJS support
+- Built-in helpers for age verification, name formatting, and CDL detection
+- Parses 30+ fields including name, address, dates, and physical descriptors
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [API](#api)
+- [Supported Fields](#supported-fields)
+- [AAMVA Version Support](#aamva-version-support)
+- [Example](#example)
+- [AAMVA Element IDs by Version](#aamva-element-ids-by-version)
+- [Contributing](#contributing)
+- [License](#license)
+- [Credits](#credits)
 
 ## Requirements
 
@@ -78,47 +98,23 @@ if (license.eyeColor === EyeColor.Brown) {
 
 ## API
 
-### `parse(barcodeData: string): ParsedLicense`
+All helper functions accept raw barcode data as a string.
 
-Parses the raw PDF417 barcode string and returns a `ParsedLicense` object with all extracted fields.
+| Function | Returns | Description |
+|:---------|:--------|:------------|
+| `parse(data)` | `ParsedLicense` | Parses the raw PDF417 barcode string and returns all extracted fields |
+| `getVersion(data)` | `string \| null` | AAMVA version number (e.g., `"08"`) |
+| `isExpired(data)` | `boolean` | `true` if the expiration date has passed |
+| `getAge(data)` | `number \| null` | Age in years from date of birth |
+| `isUnder21(data)` | `boolean` | `true` if under 21 |
+| `isUnder18(data)` | `boolean` | `true` if under 18 |
+| `isAcceptable(data)` | `boolean` | `true` if not expired, has been issued, and contains all required fields |
+| `getFullName(data)` | `string \| null` | Full name as `"FIRST MIDDLE LAST"` |
+| `getState(data)` | `string \| null` | State/jurisdiction code (e.g., `"CA"`) |
+| `isCDL(data)` | `boolean` | `true` if Commercial Driver's License (v12/CDS 2025 only) |
 
-### `getVersion(barcodeData: string): string | null`
-
-Returns the AAMVA version number (e.g., "08" for version 8).
-
-### `isExpired(barcodeData: string): boolean`
-
-Returns `true` if the license expiration date has passed.
-
-### `getAge(barcodeData: string): number | null`
-
-Returns the person's age in years, calculated from date of birth. Returns `null` if no date of birth is present.
-
-### `isUnder21(barcodeData: string): boolean`
-
-Returns `true` if the person is under 21. Returns `false` if 21+ or if no date of birth is present.
-
-### `isUnder18(barcodeData: string): boolean`
-
-Returns `true` if the person is under 18. Returns `false` if 18+ or if no date of birth is present.
-
-### `isAcceptable(barcodeData: string): boolean`
-
-Returns `true` if the license is not expired, has been issued, and contains all required fields (name, address, dates, document ID).
-
-### `getFullName(barcodeData: string): string | null`
-
-Returns the full name formatted as "FIRST MIDDLE LAST". Omits middle name if not present. Returns `null` if no name fields exist.
-
-### `getState(barcodeData: string): string | null`
-
-Returns the state/jurisdiction code (e.g., "CA", "TX"). Returns `null` if not present.
-
-### `isCDL(barcodeData: string): boolean`
-
-Returns `true` if the license is a Commercial Driver's License (v12/CDS 2025 only).
-
-### Deprecated Functions
+<details>
+<summary><strong>Deprecated Functions</strong></summary>
 
 The following PascalCase functions still work but are deprecated. Use the camelCase versions instead:
 
@@ -128,7 +124,10 @@ The following PascalCase functions still work but are deprecated. Use the camelC
 | `GetVersion()` | `getVersion()` |
 | `IsExpired()` | `isExpired()` |
 
-## Supported Fields
+</details>
+
+<details>
+<summary><h2>Supported Fields</h2></summary>
 
 | Field | Type | Attribute |
 |:------|:-----|:----------|
@@ -168,6 +167,8 @@ The following PascalCase functions still work but are deprecated. Use the camelC
 | Is Expired | `boolean` | `expired` |
 | AAMVA Version | `string` | `version` |
 | Raw Barcode Data | `string` | `pdf417` |
+
+</details>
 
 ## AAMVA Version Support
 
@@ -252,7 +253,8 @@ ZAC
 }
 ```
 
-## AAMVA Element IDs by Version
+<details>
+<summary><h2>AAMVA Element IDs by Version</h2></summary>
 
 **Bold** = Mandatory field | `--` = Not included in version
 
@@ -280,9 +282,15 @@ ZAC
 | Enhanced Credential | `--` | `--` | `--` | `--` | `--` | `--` | `--` | `--` | `--` | `--` | `--` | DDO |
 | Permit Indicator | `--` | `--` | `--` | `--` | `--` | `--` | `--` | `--` | `--` | `--` | `--` | DDP |
 
+</details>
+
+## Contributing
+
+Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
 ## License
 
-ISC
+[MIT](LICENSE)
 
 ## Credits
 

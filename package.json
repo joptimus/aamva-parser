@@ -50,7 +50,7 @@
     "nodejs"
   ],
   "author": "joptimus",
-  "license": "ISC",
+  "license": "MIT",
   "homepage": "https://github.com/joptimus/aamva-parser#readme",
   "bugs": {
     "url": "https://github.com/joptimus/aamva-parser/issues"
