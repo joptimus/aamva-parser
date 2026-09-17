@@ -7,8 +7,8 @@ All notable changes to this project will be documented in this file.
 ### Added
 
 - Exposed Country Code
-  - `countryCode` - returns ISO3 country code
-  
+  - `countryCode` - returns the raw country code from the `DCG` field (typically an ISO3 code such as `USA`, `CAN`, or `MEX`)
+
 ## [1.6.0] - 2026-04-05
 
 ### Added

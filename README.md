@@ -246,7 +246,7 @@ ZAC
   postalCode: "902230000",
   driversLicenseId: "D12345678",
   documentId: "83D9BN217QO983B1",
-  country: "United States", 
+  country: "United States",
   countryCode: "USA",
   inventoryControlNumber: "12345678900000000000",
   expired: false,
