@@ -21,6 +21,7 @@ describe('License', () => {
     expect(license.driversLicenseId).toBeNull();
     expect(license.documentId).toBeNull();
     expect(license.country).toBe(IssuingCountry.Unknown);
+    expect(license.countryCode).toBeNull();
     expect(license.middleNameTruncation).toBe(Truncation.None);
     expect(license.firstNameTruncation).toBe(Truncation.None);
     expect(license.lastNameTruncation).toBe(Truncation.None);

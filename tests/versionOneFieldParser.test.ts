@@ -95,6 +95,10 @@ describe('VersionOneFieldParser', () => {
     expect(parser.parseCountry()).toBe('United States');
   });
 
+  it('should parse country code correctly', () => {
+    expect(parser.parseCountryCode()).toBe('USA');
+  });
+
   it('should parse expiration date correctly', () => {
     const exp = parser.parseExpirationDate();
     expect(exp).not.toBeNull();

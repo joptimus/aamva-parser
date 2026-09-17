@@ -143,6 +143,22 @@ describe('FieldParser', () => {
     });
   });
 
+  describe('parseCountryCode', () => {
+    it('should parse USA', () => {
+      expect(parser.parseCountryCode()).toBe('USA')
+    });
+
+    it('should parse CAN', () => {
+      const canParser = new FieldParser('DCGCAN\n', fieldMapper);
+      expect(canParser.parseCountryCode()).toBe('CAN');
+    });
+
+    it('should return other country code', () => {
+      const unknownParser = new FieldParser('DCGMEX\n', fieldMapper);
+      expect(unknownParser.parseCountryCode()).toBe('MEX');
+    });
+  });
+
   describe('parseTruncationStatus', () => {
     it('should parse Truncated status', () => {
       const p = new FieldParser('DDFT\n', fieldMapper);

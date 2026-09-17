@@ -67,6 +67,7 @@ export class LicenseParser {
       driversLicenseId: this.fieldParser.parseString("driversLicenseId"),
       documentId: this.fieldParser.parseString("documentId"),
       country: this.fieldParser.parseCountry(),
+      countryCode: this.fieldParser.parseCountryCode(),
       middleNameTruncation: this.fieldParser.parseTruncationStatus("middleNameTruncation"),
       firstNameTruncation: this.fieldParser.parseTruncationStatus("firstNameTruncation"),
       lastNameTruncation: this.fieldParser.parseTruncationStatus("lastNameTruncation"),

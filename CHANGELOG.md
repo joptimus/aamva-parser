@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.7.0] - 2026-09-17
+
+### Added
+
+- Exposed Country Code
+  - `countryCode` - returns ISO3 country code
+  
 ## [1.6.0] - 2026-04-05
 
 ### Added

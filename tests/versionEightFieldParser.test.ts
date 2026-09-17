@@ -86,6 +86,10 @@ describe('VersionEightFieldParser', () => {
     expect(parser.parseCountry()).toBe('United States');
   });
 
+  it('should parse country code correctly', () => {
+    expect(parser.parseCountryCode()).toBe('USA');
+  });
+
   it('should parse document ID correctly', () => {
     expect(parser.parseString('documentId')).toBe('83D9BN217QO983B1');
   });

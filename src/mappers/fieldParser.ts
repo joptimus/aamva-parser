@@ -87,6 +87,10 @@ export class FieldParser {
     }
   }
 
+  parseCountryCode(): string | null {
+    return this.parseString("country");
+  }
+
   parseTruncationStatus(field: string): Truncation {
     const truncation = this.parseString(field);
     switch (truncation) {

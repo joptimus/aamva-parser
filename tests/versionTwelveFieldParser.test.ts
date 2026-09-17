@@ -75,6 +75,10 @@ DDP1`;
     expect(parser.parseCountry()).toBe('United States');
   });
 
+  it('should parse country code correctly', () => {
+    expect(parser.parseCountryCode()).toBe('USA');
+  });
+
   // Test without the new optional fields
   describe('without optional CDS 2025 fields', () => {
     const minimalData = `
