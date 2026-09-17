@@ -247,6 +247,7 @@ ZAC
   driversLicenseId: "D12345678",
   documentId: "83D9BN217QO983B1",
   country: "United States",
+  countryCode: "USA",
   inventoryControlNumber: "12345678900000000000",
   expired: false,
   version: "08"
@@ -276,6 +277,7 @@ ZAC
 | License ID | **DBJ** | **DAQ** | **DAQ** | **DAQ** | **DAQ** | **DAQ** | **DAQ** | **DAQ** | **DAQ** | **DAQ** | **DAQ** | **DAQ** |
 | Document ID | `--` | **DCF** | **DCF** | **DCF** | **DCF** | **DCF** | **DCF** | **DCF** | **DCF** | **DCF** | **DCF** | **DCF** |
 | Country | `--` | **DCG** | **DCG** | **DCG** | **DCG** | **DCG** | **DCG** | **DCG** | **DCG** | **DCG** | **DCG** | **DCG** |
+| Country Code | `--` | **DCG** | **DCG** | **DCG** | **DCG** | **DCG** | **DCG** | **DCG** | **DCG** | **DCG** | **DCG** | **DCG** |
 | Weight | `--` | DAW | DAW | DAW | DAW | DAW | DAW | DAW | DAW | DAW | DAW | DAW |
 | CDL Indicator | `--` | `--` | `--` | `--` | `--` | `--` | `--` | `--` | `--` | `--` | `--` | DDM |
 | Non-Domiciled Indicator | `--` | `--` | `--` | `--` | `--` | `--` | `--` | `--` | `--` | `--` | `--` | DDN |

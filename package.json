@@ -1,6 +1,6 @@
 {
   "name": "aamva-parser",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "Parse AAMVA PDF417 barcode data from US and Canadian driver's licenses and ID cards. TypeScript-ready, zero dependencies.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",

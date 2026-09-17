@@ -18,6 +18,7 @@ export class License implements ParsedLicense {
   driversLicenseId: string | null = null;
   documentId: string | null = null;
   country: IssuingCountry = IssuingCountry.Unknown;
+  countryCode: string | null = null;
   middleNameTruncation: Truncation = Truncation.None;
   firstNameTruncation: Truncation = Truncation.None;
   lastNameTruncation: Truncation = Truncation.None;

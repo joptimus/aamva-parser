@@ -17,6 +17,7 @@ export interface ParsedLicense {
   driversLicenseId?: string | null;
   documentId?: string | null;
   country?: IssuingCountry;
+  countryCode?: string | null;
   middleNameTruncation?: Truncation;
   firstNameTruncation?: Truncation;
   lastNameTruncation?: Truncation;

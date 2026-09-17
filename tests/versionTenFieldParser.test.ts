@@ -92,6 +92,10 @@ DAW195`;
     expect(parser.parseCountry()).toBe('United States');
   });
 
+  it('should parse country code correctly', () => {
+    expect(parser.parseCountryCode()).toBe('USA');
+  });
+
   it('should parse document ID correctly', () => {
     expect(parser.parseString('documentId')).toBe('00223344556677889900');
   });
